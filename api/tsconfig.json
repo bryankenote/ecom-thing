@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["es2015.iterable", "es2015.generator", "ESNEXT"],
+    "target": "es5",
+    "moduleResolution": "node",
+
+    "composite": true,
+    "declaration": true,
+    "outDir": "../build",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
+    "paths": {
+      "@shared/*": ["../shared/src/*"],
+      "@engine/*": ["./src/engine/*"],
+      "@db/*": ["./src/db/*"],
+      "@repos/*": ["./src/db/repositories/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@errors/*": ["./src/errors/*"],
+    }
+  },
+  "include": ["src/**/*.ts"],
+}
