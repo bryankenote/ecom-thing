@@ -1,5 +1,7 @@
 import React from 'react';
 import './style.css';
+import './commerce-search';
+import { CommerceSearch } from './commerce-search';
 
 function Home() {
   return (
@@ -8,7 +10,7 @@ function Home() {
         <h1>E-Commerce App</h1>
     </header>
     <main>
-        /**here is my comment */
+        <CommerceSearch />
     </main>
 </div>
   );
