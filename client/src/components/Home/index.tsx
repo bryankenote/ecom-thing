@@ -1,6 +1,5 @@
 import React from 'react';
 import './style.css';
-import './commerce-search';
 import { CommerceSearch } from './commerce-search';
 
 function Home() {
