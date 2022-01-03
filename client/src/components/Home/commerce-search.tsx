@@ -1,39 +1,41 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import movies from '../../api/dummyData/movies.json';
 
 export function CommerceSearch() {
     const [text, setText] = useState('');
-
-    let jsonData = require('../../api/dummyData');
 
     const handleChange = (event) => { 
         setText(event.target.value);
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const filteredMovies = () => { 
+        return movies.filter((movie) => movie.title === text).map(filteredTitle => ( // not sure if this code will work
+            <li>
+                {filteredTitle.title} 
+            </li>
+        ))
+    } // one big question I have is how to have the submit button filter the results, but then have those show up below
 
-        // I will want to have imported the data first 
-        // Then I want to convert the JSON data into js --> is this where I want to do this?? not sure yet 
-        // After that, search the data for the movie title I'm looking for by filtering the array of objects
-        // I know what info I need, but not quite sure how to 'present' it...(still working on this)
+    const handleClick = () => {
+        filteredMovies();  // at this point eliminate filteredMovies functions and put everything in here???
     }
 
+    // in the JSX below, in between the div tags, not sure how to get the <li> after search to show up there
     return (
-        <div>
-            <form className='CommerceSearch' onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={text}
-                    onChange={handleChange}
-                />
-                <input
-                    type="submit"
-                    value="Search"
-                />            
-            </form>
+        <div>           
+            <input
+                type="text"
+                value={text}
+                onChange={handleChange}
+            />
+            <button 
+                type="submit"
+                value="Search"
+                onClick={filteredMovies}>
+                    Search
+            </button>           
             <div>
-                {jsonData}
+                {filteredMovies}
             </div>
         </div>
 
