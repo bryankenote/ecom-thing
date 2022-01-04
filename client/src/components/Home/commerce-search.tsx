@@ -8,19 +8,14 @@ export function CommerceSearch() {
         setText(event.target.value);
     }
 
-    const filteredMovies = () => { 
-        return movies.filter((movie) => movie.title === text).map(filteredTitle => ( // not sure if this code will work
-            <li>
-                {filteredTitle.title} 
-            </li>
-        ))
-    } // one big question I have is how to have the submit button filter the results, but then have those show up below
+    const [filteredMovies, setFilteredMovies] = useState([]);
 
     const handleClick = () => {
-        filteredMovies();  // at this point eliminate filteredMovies functions and put everything in here???
+        setFilteredMovies(movies.filter((movie) => {
+            movie.title === text
+        }))
     }
 
-    // in the JSX below, in between the div tags, not sure how to get the <li> after search to show up there
     return (
         <div>           
             <input
@@ -31,14 +26,19 @@ export function CommerceSearch() {
             <button 
                 type="submit"
                 value="Search"
-                onClick={filteredMovies}>
+                onClick={handleClick}>
                     Search
             </button>           
             <div>
-                {filteredMovies}
+                {movies.map(mappedMovie => (
+                    <li>
+                        {mappedMovie.title}
+                    </li>
+                ))}
             </div>
         </div>
 
 
     );
+    console.log(movies);
 }
