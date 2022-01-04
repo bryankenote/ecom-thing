@@ -3,7 +3,7 @@ import movies from '../../api/dummyData/movies.json';
 
 export function CommerceSearch() {
     const [text, setText] = useState('');
-
+    
     const handleChange = (event) => { 
         setText(event.target.value);
     }
@@ -11,9 +11,9 @@ export function CommerceSearch() {
     const [filteredMovies, setFilteredMovies] = useState([]);
 
     const handleClick = () => {
-        setFilteredMovies(movies.filter((movie) => {
+        setFilteredMovies(movies.filter(movie => (
             movie.title === text
-        }))
+        )))
     }
 
     return (
@@ -30,15 +30,14 @@ export function CommerceSearch() {
                     Search
             </button>           
             <div>
-                {movies.map(mappedMovie => (
-                    <li>
+                {filteredMovies.map(mappedMovie => (
+                    <p>
                         {mappedMovie.title}
-                    </li>
+                    </p>             
                 ))}
             </div>
         </div>
 
 
     );
-    console.log(movies);
 }
