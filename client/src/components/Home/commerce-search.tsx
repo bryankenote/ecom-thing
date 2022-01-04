@@ -12,7 +12,7 @@ export function CommerceSearch() {
 
     const handleClick = () => {
         setFilteredMovies(movies.filter(movie => (
-            movie.title === text
+            movie.title.toLowerCase().includes(text.toLowerCase())
         )))
     }
 
