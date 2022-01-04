@@ -31,9 +31,15 @@ export function CommerceSearch() {
             </button>           
             <div>
                 {filteredMovies.map(mappedMovie => (
-                    <p>
-                        {mappedMovie.title}
-                    </p>             
+                    <>
+                        <p>
+                            {mappedMovie.title}
+                        </p>
+                        <img src={mappedMovie.img}/>
+                        <p>
+                            Price: {mappedMovie.price}
+                        </p>
+                    </>                           
                 ))}
             </div>
         </div>
