@@ -24,22 +24,20 @@ export function CommerceSearch() {
                 onChange={handleChange}
             />
             <button 
-                type="submit"
-                value="Search"
-                onClick={handleClick}>
+                    onClick={handleClick}>
                     Search
             </button>           
             <div>
-                {filteredMovies.map(mappedMovie => (
-                    <>
+                {filteredMovies.map((mappedMovie, index) => (
+                    <div key={index}>
                         <p>
-                            {mappedMovie.title}
+                            Title: {mappedMovie.title}
                         </p>
-                        <img src={mappedMovie.img}/>
+                        <img src={mappedMovie.img} alt=""/>
                         <p>
                             Price: {mappedMovie.price}
                         </p>
-                    </>                           
+                    </div>                           
                 ))}
             </div>
         </div>
