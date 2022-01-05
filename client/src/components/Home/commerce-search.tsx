@@ -23,9 +23,8 @@ export function CommerceSearch() {
                 value={text}
                 onChange={handleChange}
             />
-            <button 
-                    onClick={handleClick}>
-                    Search
+            <button onClick={handleClick}>
+                Search
             </button>           
             <div>
                 {filteredMovies.map((mappedMovie, index) => (
@@ -41,7 +40,5 @@ export function CommerceSearch() {
                 ))}
             </div>
         </div>
-
-
     );
 }
