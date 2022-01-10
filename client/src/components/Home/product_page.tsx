@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
-import movies from '../../api/dummyData/movies.json';
+import React from 'react';
 
-const tempProdVar = movies[0];
-
-export function Product(tempProdVar) {
+export function Product(props) {
     return (
         <div>
-            <h2>{tempProdVar.title}</h2>
-            <img src={tempProdVar.img} alt=""/>
-            <h3>Price: {tempProdVar.price}</h3>
+            <h2>{props.movie.title}</h2>
+            <img src={props.movie.img} alt=""/>
+            <h3>Price: {props.movie.price}</h3>
         </div>
     )
 }
