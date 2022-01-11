@@ -27,15 +27,18 @@ export function CommerceSearch() {
                 Search
             </button>           
             <div>
-                {filteredMovies.map((mappedMovie, index) => (
+                {filteredMovies.map((item, index) => (
                     <div key={index}>
                         <p>
-                            Title: {mappedMovie.title}
+                            Title: {item.title}
                         </p>
-                        <img src={mappedMovie.img} alt=""/>
+                        <img src={item.img} alt=""/>
                         <p>
-                            Price: {mappedMovie.price}
+                            Price: {item.price}
                         </p>
+                        <button onClick={setProduct(item)}>
+                            Add Item
+                        </button>
                     </div>                           
                 ))}
             </div>
