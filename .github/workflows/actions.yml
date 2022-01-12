@@ -1,16 +1,18 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-    Explore-GitHub-Actions:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Check out repository code
-              uses: actions/checkout@v2
-            - name: Install api packages
-              run: yarn --cwd ./api
-            - name: Run api tests
-              run: yarn --cwd ./api jest --passWithNoTests
-            - name: Install client packages
-              run: yarn --cwd ./client
-            - name: Run client tests
-              run: yarn --cwd ./client test --watchAll=false
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Install api packages
+        run: yarn --cwd ./api
+      - name: Run api tests
+        run: yarn --cwd ./api jest --passWithNoTests
+      - name: Install client packages
+        run: yarn --cwd ./client
+      - name: Lint client
+        run: yarn --cwd ./client lint
+      - name: Run client tests
+        run: yarn --cwd ./client test --watchAll=false
