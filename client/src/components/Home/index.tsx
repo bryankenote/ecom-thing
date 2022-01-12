@@ -7,13 +7,7 @@ import { Product } from './product_page';
 function Home() {
   const [selectedProduct, setSelectedProduct] = useState({});
 
-  const setProduct = (newItem) => {
-    setSelectedProduct(newState => {
-      return {newItem}
-    })
-  }
-
-  const page = selectedProduct ? <Product item={selectedProduct}/>: <CommerceSearch setProduct={setProduct}/>;
+  const page = selectedProduct ? <Product item={selectedProduct}/>: <CommerceSearch setProduct={setSelectedProduct}/>;
   
   return (
     <div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import movies from '../../api/dummyData/movies.json';
 
-export function CommerceSearch() {
+export function CommerceSearch(props) {
     const [text, setText] = useState('');
     
     const handleChange = (event) => { 
@@ -36,7 +36,7 @@ export function CommerceSearch() {
                         <p>
                             Price: {item.price}
                         </p>
-                        <button onClick={setProduct(item)}>
+                        <button onClick={props.setProduct(item)}>
                             Add Item
                         </button>
                     </div>                           
