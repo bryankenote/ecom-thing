@@ -8,6 +8,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Install api packages
         run: yarn --cwd ./api
+      - name: Lint api
+        run: yarn --cwd ./api lint
       - name: Run api tests
         run: yarn --cwd ./api jest --passWithNoTests
       - name: Install client packages
