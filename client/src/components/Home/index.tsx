@@ -5,9 +5,9 @@ import { Product } from './product_page';
 //import movies from '../../api/dummyData/movies.json';
 
 function Home() {
-  const [selectedProduct, setSelectedProduct] = useState({});
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const page = selectedProduct ? <CommerceSearch setProduct={setSelectedProduct} /> : <Product item={selectedProduct} />;
+  const page = selectedProduct ? <Product item={selectedProduct} /> : <CommerceSearch setProduct={setSelectedProduct} />;
   
   return (
     <div>

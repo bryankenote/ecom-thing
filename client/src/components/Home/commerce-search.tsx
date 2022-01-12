@@ -36,7 +36,7 @@ export function CommerceSearch(props) {
                         <p>
                             Price: {item.price}
                         </p>
-                        <button onClick={props.setProduct(item)}>
+                        <button onClick={() => props.setProduct(item)}>
                             Add Item
                         </button>
                     </div>                           
