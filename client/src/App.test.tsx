@@ -1,9 +1,12 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders header', () => {
-	render(<App />);
-	const linkElement = screen.getByText(/E-Commerce App/i);
-	expect(linkElement).toBeInTheDocument();
+test('renders App', () => {
+	render(
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>,
+	);
 });
