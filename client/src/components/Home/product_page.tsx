@@ -1,6 +1,14 @@
 import React from 'react';
 
-export function Product(props) {
+interface IProduct {
+    item: {
+        title: string;
+        img: string;
+        price: number;
+    }
+}
+
+export function Product(props: IProduct) {
     return (
         <div>
             <h2>{props.item.title}</h2>

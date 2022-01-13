@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './style.css';
 import { CommerceSearch } from './commerce-search';
 import { Product } from './product_page';
-//import movies from '../../api/dummyData/movies.json';
+
 
 function Home() {
   const [selectedProduct, setSelectedProduct] = useState(null);

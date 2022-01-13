@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import movies from '../../api/dummyData/movies.json';
 
-export function CommerceSearch(props) {
+interface ICommerceSearch {
+    setProduct: (item: { title: string; img: string; price: number }) => void;
+}
+
+export function CommerceSearch(props: ICommerceSearch) {
     const [text, setText] = useState('');
     
     const handleChange = (event) => { 
