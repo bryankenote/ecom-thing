@@ -1,0 +1,39 @@
+name: Premerge checks
+
+on: [push]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Install api packages
+        run: yarn --cwd ./api
+
+      - name: Lint api
+        run: yarn --cwd ./api lint
+
+      - name: Build api
+        run: yarn --cwd ./api build
+
+      - name: Run api tests
+        run: yarn --cwd ./api jest --passWithNoTests
+
+      - name: Install client packages
+        run: yarn --cwd ./client
+
+      - name: Lint client
+        run: yarn --cwd ./client lint
+
+      - name: Build client
+        run: CI=false yarn --cwd ./client build
+
+      - name: Run client tests
+        run: yarn --cwd ./client test --watchAll=false
