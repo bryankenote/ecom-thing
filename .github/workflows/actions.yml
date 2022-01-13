@@ -33,7 +33,7 @@ jobs:
         run: yarn --cwd ./client lint
 
       - name: Build client
-        run: yarn --cwd ./client build
+        run: CI=false yarn --cwd ./client build
 
       - name: Run client tests
         run: yarn --cwd ./client test --watchAll=false
