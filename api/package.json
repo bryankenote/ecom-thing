@@ -5,6 +5,7 @@
 	"license": "MIT",
 	"scripts": {
 		"lint": "eslint --ext .ts --ext .tsx .",
+		"build": "tsc ./src/index.ts",
 		"start:dev": "nodemon watch"
 	},
 	"dependencies": {
