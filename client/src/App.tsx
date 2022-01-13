@@ -1,11 +1,16 @@
-import React from 'react';
-import Home from './components/Home';
-import './App.css';
+import React from "react";
+import Catalog from "./components/Catalog";
+import Product from "./components/Product";
+import "./App.css";
+import { Routes, Route } from "react-router";
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <Routes>
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/product" element={<Product />} />
+      </Routes>
     </div>
   );
 }
