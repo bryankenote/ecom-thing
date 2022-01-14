@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install api packages
-        run: yarn --cwd ./api
+        run: yarn --cwd ./api --frozen-lockfile
 
       - name: Lint api
         run: yarn --cwd ./api lint
@@ -27,7 +27,7 @@ jobs:
         run: yarn --cwd ./api jest --passWithNoTests
 
       - name: Install client packages
-        run: yarn --cwd ./client
+        run: yarn --cwd ./client --frozen-lockfile
 
       - name: Lint client
         run: yarn --cwd ./client lint
