@@ -29,10 +29,7 @@ jobs:
       - name: Install client packages
         run: yarn --cwd ./client --frozen-lockfile
 
-      - name: Lint client
-        run: yarn --cwd ./client lint
-
-      - name: Build client
+      - name: Build and lint client
         run: CI=false yarn --cwd ./client build
 
       - name: Run client tests
