@@ -1,30 +1,31 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './login.css';
 
 function Login() {
-	const [username, setUserName] = useState('');
+	const [username, setUserName] = useState<string>('');
 	const handleUserChange = (event) => {
 		setUserName(event.target.value);
 	};
 
-	const [password, setPassword] = useState('');
+	const [password, setPassword] = useState<string>('');
 	const handlePasswordChange = (event) => {
 		setPassword(event.target.value);
 	};
 
 	return (
-		<div>
+		<div className="login">
 			<label>
-				<b>Username</b>
+				<b>Login</b>
 			</label>
+
+			<label>Username</label>
 			<input type="text" onChange={handleUserChange} />
 
-			<label>
-				<b>Password</b>
-			</label>
+			<label>Password</label>
 			<input type="password" onChange={handlePasswordChange} />
 
-			<Link to="/catalog">Submit Credentials</Link>
+			<Link to="/catalog">Submit</Link>
 		</div>
 	);
 }
