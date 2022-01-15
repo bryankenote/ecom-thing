@@ -1,8 +1,9 @@
 import React from 'react';
 import Catalog from './components/Catalog';
 import Product from './components/Product';
-import './App.css';
+import Login from './components/Login/login';
 import { Routes, Route } from 'react-router';
+import './App.css';
 
 function App() {
 	return (
@@ -10,6 +11,7 @@ function App() {
 			<Routes>
 				<Route path="/catalog" element={<Catalog />} />
 				<Route path="/product" element={<Product />} />
+				<Route path="/" element={<Login />} />
 			</Routes>
 		</div>
 	);
