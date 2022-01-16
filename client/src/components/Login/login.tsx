@@ -14,18 +14,26 @@ function Login() {
 	};
 
 	return (
-		<div className="login">
-			<label>
-				<b>Login</b>
-			</label>
+		<div>
+			<div className="logindiv">
+				<label className="loginLabel">
+					<b>Login</b>
+				</label>
+			</div>
 
-			<label>Username</label>
-			<input type="text" onChange={handleUserChange} />
+			<div className="logindiv">
+				<label>Username</label>
+				<input type="text" onChange={handleUserChange} />
+			</div>
 
-			<label>Password</label>
-			<input type="password" onChange={handlePasswordChange} />
+			<div className="logindiv">
+				<label>Password</label>
+				<input type="password" onChange={handlePasswordChange} />
+			</div>
 
-			<Link to="/catalog">Submit</Link>
+			<div className="logindiv">
+				<Link to="/catalog">Submit</Link>
+			</div>
 		</div>
 	);
 }

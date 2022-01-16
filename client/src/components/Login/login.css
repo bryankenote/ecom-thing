@@ -1,19 +1,10 @@
-input[type='text'],
-input[type='password'] {
-	margin: 8px 0;
-	width: 25%;
-	padding: 12px 20px;
-	display: inline-block;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
+.logindiv {
+	margin: auto;
+	height: 50px;
+	width: 50px;
+	margin-bottom: 10px;
 }
 
-button {
-	background-color: #04aa6d;
-	color: white;
-	padding: 14px 20px;
-	margin: 8px 0;
-	border: none;
-	cursor: pointer;
-	width: 100%;
+.loginLabel {
+	font-size: 30px;
 }
