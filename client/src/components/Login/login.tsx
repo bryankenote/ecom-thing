@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './login.css';
+import styles from './Login.module.css';
 
 function Login() {
 	const [username, setUserName] = useState<string>('');
@@ -15,23 +15,23 @@ function Login() {
 
 	return (
 		<div>
-			<div className="logindiv1">
-				<label className="loginLabel">
+			<div className={styles.login}>
+				<label className={styles.logintitle}>
 					<b>Login</b>
 				</label>
 			</div>
 
-			<div className="logindiv2">
+			<div className={styles.input}>
 				<label>Username</label>
 				<input type="text" onChange={handleUserChange} />
 			</div>
 
-			<div className="logindiv2">
+			<div className={styles.input}>
 				<label>Password</label>
 				<input type="password" onChange={handlePasswordChange} />
 			</div>
 
-			<div className="logindiv2">
+			<div className={styles.input}>
 				<Link to="/catalog">Submit</Link>
 			</div>
 		</div>

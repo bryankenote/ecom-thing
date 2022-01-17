@@ -1,4 +1,4 @@
-.logindiv1 {
+.login {
 	margin: auto;
 	height: 50px;
 	width: 50px;
@@ -6,13 +6,13 @@
 	margin-top: 30px;
 }
 
-.logindiv2 {
+.input {
 	margin: auto;
 	height: 50px;
 	width: 50px;
 	margin-bottom: 10px;
 }
 
-.loginLabel {
+.logintitle {
 	font-size: 30px;
 }
