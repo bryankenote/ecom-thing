@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import movies from '../../api/dummyData/movies.json';
+import { LocalizationContext } from '../../localization';
 
 function Catalog() {
+	const strings = useContext(LocalizationContext);
+
 	const [text, setText] = useState('');
 
 	const handleChange = (event) => {
@@ -22,18 +25,22 @@ function Catalog() {
 	return (
 		<div>
 			<header>
-				<h1>E-Commerce App</h1>
+				<h1>{strings.catalogHeader}</h1>
 			</header>
 			<input type="text" value={text} onChange={handleChange} />
-			<button onClick={handleClick}>Search</button>
+			<button onClick={handleClick}>{strings.search}</button>
 			<div>
 				{filteredMovies.map((item, index) => (
 					<div key={index}>
-						<p>Title: {item.title}</p>
+						<p>
+							{strings.title}: {item.title}
+						</p>
 						<img src={item.img} alt="" />
-						<p>Price: {item.price}</p>
+						<p>
+							{strings.price}: {item.price}
+						</p>
 						<Link to="/product" state={{ item }}>
-							Add Item
+							{strings.viewProduct}
 						</Link>
 					</div>
 				))}

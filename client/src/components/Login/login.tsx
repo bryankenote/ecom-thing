@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { LocalizationContext } from '../../localization';
 import styles from './Login.module.css';
 
 function Login() {
+	const strings = useContext(LocalizationContext);
+
 	const [username, setUserName] = useState<string>('');
 	const handleUserChange = (event) => {
 		setUserName(event.target.value);
@@ -17,17 +20,17 @@ function Login() {
 		<div>
 			<div className={styles.login}>
 				<label className={styles.loginTitle}>
-					<b>Login</b>
+					<b>{strings.login}</b>
 				</label>
 			</div>
 
 			<div className={styles.input}>
-				<label>Username</label>
+				<label>{strings.username}</label>
 				<input type="text" onChange={handleUserChange} />
 			</div>
 
 			<div className={styles.input}>
-				<label>Password</label>
+				<label>{strings.password}</label>
 				<input type="password" onChange={handlePasswordChange} />
 			</div>
 
@@ -36,7 +39,7 @@ function Login() {
 					!username || !password ? styles.disabled : ''
 				}`}
 			>
-				<Link to="/catalog">Submit</Link>
+				<Link to="/catalog">{strings.submit}</Link>
 			</div>
 		</div>
 	);
