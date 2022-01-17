@@ -1,0 +1,18 @@
+.login {
+	margin: auto;
+	height: 50px;
+	width: 50px;
+	margin-bottom: 10px;
+	margin-top: 30px;
+}
+
+.input {
+	margin: auto;
+	height: 50px;
+	width: 50px;
+	margin-bottom: 10px;
+}
+
+.loginTitle {
+	font-size: 30px;
+}
