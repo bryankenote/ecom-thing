@@ -31,7 +31,11 @@ function Login() {
 				<input type="password" onChange={handlePasswordChange} />
 			</div>
 
-			<div className={styles.input}>
+			<div
+				className={`${styles.input} ${
+					!username || !password ? styles.disabled : ''
+				}`}
+			>
 				<Link to="/catalog">Submit</Link>
 			</div>
 		</div>

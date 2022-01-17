@@ -16,3 +16,8 @@
 .loginTitle {
 	font-size: 30px;
 }
+
+.disabled {
+	pointer-events: none;
+	opacity: 50%;
+}
