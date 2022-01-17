@@ -1,7 +1,7 @@
 import React from 'react';
-import Catalog from './components/Catalog';
-import Product from './components/Product';
-import Login from './components/Login/login';
+import Catalog from './components/Pages/Catalog';
+import Product from './components/Pages/Product';
+import Login from './components/Pages/Login';
 import { Routes, Route } from 'react-router';
 import { LocalizationContext, localStrings } from './localization';
 import './App.css';
