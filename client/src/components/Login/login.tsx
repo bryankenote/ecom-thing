@@ -16,7 +16,7 @@ function Login() {
 	return (
 		<div>
 			<div className={styles.login}>
-				<label className={styles.logintitle}>
+				<label className={styles.loginTitle}>
 					<b>Login</b>
 				</label>
 			</div>
