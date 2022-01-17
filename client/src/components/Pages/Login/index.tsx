@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { LocalizationContext } from '../../localization';
-import styles from './Login.module.css';
+import { LocalizationContext } from '../../../localization';
+import style from './style.module.css';
 
 function Login() {
 	const strings = useContext(LocalizationContext);
@@ -18,25 +18,25 @@ function Login() {
 
 	return (
 		<div>
-			<div className={styles.login}>
-				<label className={styles.loginTitle}>
+			<div className={style.login}>
+				<label className={style.loginTitle}>
 					<b>{strings.login}</b>
 				</label>
 			</div>
 
-			<div className={styles.input}>
+			<div className={style.input}>
 				<label>{strings.username}</label>
 				<input type="text" onChange={handleUserChange} />
 			</div>
 
-			<div className={styles.input}>
+			<div className={style.input}>
 				<label>{strings.password}</label>
 				<input type="password" onChange={handlePasswordChange} />
 			</div>
 
 			<div
-				className={`${styles.input} ${
-					!username || !password ? styles.disabled : ''
+				className={`${style.input} ${
+					!username || !password ? style.disabled : ''
 				}`}
 			>
 				<Link to="/catalog">{strings.submit}</Link>

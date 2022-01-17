@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
-import { LocalizationContext } from '../../localization';
+import { LocalizationContext } from '../../../localization';
 
 interface ILocationState {
 	item: {
@@ -10,7 +10,7 @@ interface ILocationState {
 	};
 }
 
-function Product() {
+function ProductDetail() {
 	const strings = useContext(LocalizationContext);
 	const location = useLocation();
 	const { item } = location.state as ILocationState;
@@ -25,4 +25,4 @@ function Product() {
 	);
 }
 
-export default Product;
+export default ProductDetail;

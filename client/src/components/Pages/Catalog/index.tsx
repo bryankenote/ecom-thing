@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import movies from '../../api/dummyData/movies.json';
-import { LocalizationContext } from '../../localization';
+import movies from '../../../api/dummyData/movies.json';
+import { LocalizationContext } from '../../../localization';
 
 function Catalog() {
 	const strings = useContext(LocalizationContext);
