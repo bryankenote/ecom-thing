@@ -1,6 +1,6 @@
 import React from 'react';
 import Catalog from './components/Pages/Catalog';
-import Product from './components/Pages/Product';
+import Product from './components/Pages/ProductDetail';
 import Login from './components/Pages/Login';
 import { Routes, Route } from 'react-router';
 import { LocalizationContext, localStrings } from './localization';

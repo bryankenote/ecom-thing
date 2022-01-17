@@ -10,7 +10,7 @@ interface ILocationState {
 	};
 }
 
-function Product() {
+function ProductDetail() {
 	const strings = useContext(LocalizationContext);
 	const location = useLocation();
 	const { item } = location.state as ILocationState;
@@ -25,4 +25,4 @@ function Product() {
 	);
 }
 
-export default Product;
+export default ProductDetail;
