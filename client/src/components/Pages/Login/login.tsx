@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { LocalizationContext } from '../../localization';
+import { LocalizationContext } from '../../../localization';
 import styles from './Login.module.css';
 
 function Login() {

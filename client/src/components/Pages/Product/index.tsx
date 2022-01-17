@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
-import { LocalizationContext } from '../../localization';
+import { LocalizationContext } from '../../../localization';
 
 interface ILocationState {
 	item: {
