@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import movies from '../../../api/dummyData/movies.json';
 import { LocalizationContext } from '../../../localization';
+import Product from '../../Generic/Product';
 
 function Catalog() {
 	const strings = useContext(LocalizationContext);
@@ -32,13 +33,7 @@ function Catalog() {
 			<div>
 				{filteredMovies.map((item, index) => (
 					<div key={index}>
-						<p>
-							{strings.title}: {item.title}
-						</p>
-						<img src={item.img} alt="" />
-						<p>
-							{strings.price}: {item.price}
-						</p>
+						<Product item={item} />
 						<Link to="/product" state={{ item }}>
 							{strings.viewProduct}
 						</Link>

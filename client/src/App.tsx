@@ -11,9 +11,9 @@ function App() {
 		<LocalizationContext.Provider value={localStrings}>
 			<div className="App">
 				<Routes>
+					<Route path="/" element={<Login />} />
 					<Route path="/catalog" element={<Catalog />} />
 					<Route path="/product" element={<Product />} />
-					<Route path="/" element={<Login />} />
 				</Routes>
 			</div>
 		</LocalizationContext.Provider>
