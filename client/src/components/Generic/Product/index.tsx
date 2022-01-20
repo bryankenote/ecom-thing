@@ -1,6 +1,16 @@
 import react, { useContext } from 'react';
 import { LocalizationContext } from '../../../localization';
 
+interface IProduct {
+	props: {
+		item: {
+			title: string;
+			img: string;
+			price: number;
+		};
+	};
+}
+
 function Product(props) {
 	const strings = useContext(LocalizationContext);
 	return (
