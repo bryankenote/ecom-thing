@@ -1,17 +1,15 @@
-import react, { useContext } from 'react';
+import React, { useContext } from 'react';
 import { LocalizationContext } from '../../../localization';
 
 interface IProduct {
-	props: {
-		item: {
-			title: string;
-			img: string;
-			price: number;
-		};
+	item: {
+		title: string;
+		img: string;
+		price: number;
 	};
 }
 
-function Product(props) {
+function Product(props: IProduct) {
 	const strings = useContext(LocalizationContext);
 	return (
 		<div>
