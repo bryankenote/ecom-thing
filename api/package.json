@@ -1,15 +1,20 @@
 {
 	"name": "api",
 	"version": "1.0.0",
-	"main": "src/index.js",
+	"main": "src/index.ts",
+	"type": "module",
 	"license": "MIT",
 	"scripts": {
 		"lint": "eslint --ext .ts --ext .tsx .",
-		"build": "tsc ./src/index.ts",
-		"start:dev": "nodemon watch"
+		"build": "tsc  --project . --outDir ./dist",
+		"start": "node --es-module-specifier-resolution=node dist/index.js",
+		"dev": "tsc-watch --project . --outDir ./dist --onSuccess \"nodemon\"",
+		"docker:run": "(docker-compose down; docker-compose build; docker-compose up)",
+		"docker:image": "docker build -t node-api:v1 .",
+		"docker:network": "docker network create node-api-network"
 	},
 	"dependencies": {
-		"express": "^4.17.1",
+		"express": "^4.17.2",
 		"mysql2": "^2.3.3"
 	},
 	"devDependencies": {
@@ -34,6 +39,7 @@
 		"prettier": "^2.4.1",
 		"ts-jest": "^27.1.2",
 		"ts-node": "^10.4.0",
+		"tsc-watch": "^4.6.0",
 		"tsconfig-paths": "^3.11.0",
 		"typescript": "^4.4.4"
 	}
