@@ -1,6 +1,6 @@
 FROM node:14
 
-WORKDIR /api
+WORKDIR /app
 
 COPY package.json .
 
@@ -10,6 +10,6 @@ COPY . .
 
 EXPOSE 8000
 
-VOLUME [ "/api/node_modules" ]
+VOLUME [ "/app/node_modules" ]
 
 CMD ["yarn", "dev"]
