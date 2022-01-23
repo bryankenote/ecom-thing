@@ -18,6 +18,7 @@ module.exports = {
 		'no-bitwise': 'off',
 		'no-plusplus': 'off',
 		'no-continue': 'off',
+		'no-console': 'off',
 		'no-param-reassign': 'off',
 		'import/no-cycle': 'off',
 		'import/prefer-default-export': 'off',

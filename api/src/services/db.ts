@@ -3,11 +3,7 @@ import tables from './tables';
 import config from '../config';
 
 const init = async () => {
-	const promises = [];
-	for (const createTable of Object.values(tables)) {
-		promises.push(query(createTable));
-	}
-	await Promise.all(promises);
+	await Promise.all(Object.values(tables).map((sql) => query(sql)));
 	console.log('Finished intializing tables');
 };
 
