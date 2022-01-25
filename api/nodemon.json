@@ -2,5 +2,5 @@
 	"watch": ["src"],
 	"ext": "ts",
 	"ignore": ["src/**/*.spec.ts"],
-	"exec": "node --es-module-specifier-resolution=node dist/index.js"
+	"exec": "node --es-module-specifier-resolution=node --inspect=0.0.0.0:9229 dist/index.js"
 }
