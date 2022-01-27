@@ -9,11 +9,15 @@ function Catalog() {
 
 	const [text, setText] = useState('');
 
-	const handleChange = (event) => {
+	const handleChange: React.ChangeEventHandler<HTMLInputElement> = (
+		event,
+	) => {
 		setText(event.target.value);
 	};
 
-	const [filteredMovies, setFilteredMovies] = useState([]);
+	const [filteredMovies, setFilteredMovies] = useState<
+		{ img: string; title: string; price: number }[]
+	>([]);
 
 	const handleClick = () => {
 		setFilteredMovies(

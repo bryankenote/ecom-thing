@@ -18,7 +18,9 @@ function ProductDetail(props: IProductDetail) {
 
 	const [itemQuantity, setItemQuantity] = useState<number>(1);
 
-	const handleItemQuantityChange = (event) => {
+	const handleItemQuantityChange: React.ChangeEventHandler<
+		HTMLInputElement
+	> = (event) => {
 		const quantity = parseInt(event.target.value);
 		if (quantity === 0) {
 			return;
