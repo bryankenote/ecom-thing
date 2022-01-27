@@ -7,5 +7,9 @@
 	"search": "Search",
 	"title": "Title",
 	"username": "Username",
-	"viewProduct": "View product"
+	"viewProduct": "View product",
+	"addToCart": "Add To Cart",
+	"checkout": "Checkout",
+	"shoppingCart": "Shopping Cart",
+	"quantity": "Quantity"
 }
