@@ -7,12 +7,16 @@ function Login() {
 	const strings = useContext(LocalizationContext);
 
 	const [username, setUserName] = useState<string>('');
-	const handleUserChange = (event) => {
+	const handleUserChange: React.ChangeEventHandler<HTMLInputElement> = (
+		event,
+	) => {
 		setUserName(event.target.value);
 	};
 
 	const [password, setPassword] = useState<string>('');
-	const handlePasswordChange = (event) => {
+	const handlePasswordChange: React.ChangeEventHandler<HTMLInputElement> = (
+		event,
+	) => {
 		setPassword(event.target.value);
 	};
 
