@@ -19,10 +19,10 @@ function Checkout({ cartItems }: ICheckout) {
 			</div>
 			<div>
 				{Object.values(cartItems).map((value, index) => (
-					<div className={strings.checkoutItem} key={index}>
+					<div className="checkout-item" key={index}>
 						<Product item={value.product} />
-						<h3 className={strings.checkoutItemQty}>
-							Quantity: {value.quantity}
+						<h3 className="checkout-item-qty">
+							{strings.quantity}: {value.quantity}
 						</h3>
 						<div className={style.border}></div>
 					</div>

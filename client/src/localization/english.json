@@ -11,7 +11,5 @@
 	"addToCart": "Add To Cart",
 	"checkout": "Checkout",
 	"shoppingCart": "Shopping Cart",
-	"quantity": "Quantity",
-	"checkoutItem": "Checkout-Item",
-	"checkoutItemQty": "Checkout-Item-Qty"
+	"quantity": "Quantity"
 }
