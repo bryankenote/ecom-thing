@@ -40,8 +40,14 @@ function App() {
 	return (
 		<LocalizationContext.Provider value={localStrings}>
 			<div className="App">
-				<Link to="/catalog">{strings.catalog}</Link>
-				<Link to="/Checkout">{strings.checkout}</Link>
+				<div className="flex-container">
+					<div>
+						<Link to="/catalog">{strings.catalog}</Link>
+					</div>
+					<div>
+						<Link to="/Checkout">{strings.checkout}</Link>
+					</div>
+				</div>
 				<Routes>
 					<Route path="/" element={<Login />} />
 					<Route path="/catalog" element={<Catalog />} />
