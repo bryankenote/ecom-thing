@@ -1,0 +1,13 @@
+.TopContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: rgb(42 123 165);
+	height: 30px;
+}
+
+.TopContainer > * {
+	color: #e0dad9;
+	margin: 10px;
+}

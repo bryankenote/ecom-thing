@@ -1,13 +1,13 @@
-import React, { useState, useContext, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import Catalog from './components/Pages/Catalog';
 import Login from './components/Pages/Login';
 import { Routes, Route } from 'react-router';
-import { Link } from 'react-router-dom';
 import { LocalizationContext, localStrings } from './localization';
 import Checkout from './components/Pages/Checkout';
 import './App.css';
 import ProductDetail from './components/Pages/ProductDetail';
 import { product } from './components/Generic/Product';
+import TopBar from './TopBar';
 
 export interface ICart {
 	[title: string]: {
@@ -17,8 +17,6 @@ export interface ICart {
 }
 
 function App() {
-	const strings = useContext(LocalizationContext);
-
 	const [cartItems, setCartItems] = useState<ICart>({});
 
 	const onAdd = useCallback((product: product, quantity: number) => {
@@ -40,10 +38,7 @@ function App() {
 	return (
 		<LocalizationContext.Provider value={localStrings}>
 			<div className="App">
-				<div className="flex-container">
-					<Link to="/catalog">{strings.catalog}</Link>
-					<Link to="/Checkout">{strings.checkout}</Link>
-				</div>
+				<TopBar />
 				<Routes>
 					<Route path="/" element={<Login />} />
 					<Route path="/catalog" element={<Catalog />} />
