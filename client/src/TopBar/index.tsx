@@ -8,7 +8,7 @@ function TopBar() {
 	return (
 		<div className={style.TopContainer}>
 			<Link to="/catalog">{strings.catalog}</Link>
-			<Link to="/Checkout">{strings.checkout}</Link>
+			<Link to="/checkout">{strings.checkout}</Link>
 		</div>
 	);
 }
