@@ -11,5 +11,6 @@
 	"addToCart": "Add To Cart",
 	"checkout": "Checkout",
 	"shoppingCart": "Shopping Cart",
-	"quantity": "Quantity"
+	"quantity": "Quantity",
+	"catalog": "Catalog"
 }
