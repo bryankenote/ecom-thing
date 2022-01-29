@@ -21,30 +21,23 @@ function Login() {
 	};
 
 	return (
-		<div>
-			<div className={style.login}>
-				<label className={style.loginTitle}>
-					<b>{strings.login}</b>
-				</label>
-			</div>
+		<div className={style.Login}>
+			<label className={style.loginTitle}>{strings.login}</label>
 
-			<div className={style.input}>
-				<label>{strings.username}</label>
-				<input type="text" onChange={handleUserChange} />
-			</div>
+			<label>{strings.username}</label>
+			<input type="text" onChange={handleUserChange} />
 
-			<div className={style.input}>
-				<label>{strings.password}</label>
-				<input type="password" onChange={handlePasswordChange} />
-			</div>
+			<label>{strings.password}</label>
+			<input type="password" onChange={handlePasswordChange} />
 
-			<div
+			<Link
 				className={`${style.input} ${
 					!username || !password ? style.disabled : ''
 				}`}
+				to="/catalog"
 			>
-				<Link to="/catalog">{strings.submit}</Link>
-			</div>
+				{strings.submit}
+			</Link>
 		</div>
 	);
 }
