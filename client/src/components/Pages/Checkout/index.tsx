@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { LocalizationContext } from '../../../localization';
 import { ICart } from '../../../App';
-import Product from '../../Generic/Product';
+import Product, { product } from '../../Generic/Product';
 import style from './style.module.css';
 
 interface ICheckout {
@@ -19,12 +19,11 @@ function Checkout({ cartItems }: ICheckout) {
 			</div>
 			<div>
 				{Object.values(cartItems).map((value, index) => (
-					<div className="checkout-item" key={index}>
+					<div className="checkoutItem" key={index}>
 						<Product item={value.product} />
 						<h3 className="checkout-item-qty">
 							{strings.quantity}: {value.quantity}
 						</h3>
-						<div className={style.border}></div>
 					</div>
 				))}
 			</div>

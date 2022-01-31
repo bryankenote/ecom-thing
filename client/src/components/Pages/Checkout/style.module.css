@@ -1,3 +1,12 @@
+.checkoutItem {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.checkoutItem > div {
+}
+
 .border {
 	border: 3px solid black;
 }
