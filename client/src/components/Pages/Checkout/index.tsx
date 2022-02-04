@@ -1,15 +1,20 @@
 import React, { useContext } from 'react';
 import { LocalizationContext } from '../../../localization';
 import { ICart } from '../../../App';
-import Product from '../../Generic/Product';
+import Product, { product } from '../../Generic/Product';
 import style from './style.module.css';
 
 interface ICheckout {
 	cartItems: ICart;
+	onRemove: (product: product) => void;
 }
 
-function Checkout({ cartItems }: ICheckout) {
+function Checkout({ cartItems, onRemove }: ICheckout) {
 	const strings = useContext(LocalizationContext);
+
+	const removeFromCart = (productItem: product) => {
+		onRemove(productItem);
+	};
 
 	return (
 		<div>
@@ -24,7 +29,10 @@ function Checkout({ cartItems }: ICheckout) {
 							</h3>
 						</div>
 						<div>
-							<button className={style.deleteButton}>
+							<button
+								className={style.deleteButton}
+								onClick={removeFromCart(value.product)}
+							>
 								{strings.deleteItem}
 							</button>
 						</div>

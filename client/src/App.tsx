@@ -21,6 +21,7 @@ function App() {
 
 	const onAdd = useCallback((product: product, quantity: number) => {
 		setCartItems((cartItems) => {
+			console.log(JSON.stringify(cartItems));
 			let cartItem = cartItems[product.title];
 			let newQuantity;
 			if (cartItem) {
@@ -32,6 +33,14 @@ function App() {
 				...cartItems,
 				[product.title]: { product, quantity: newQuantity },
 			};
+		});
+	}, []);
+
+	const onRemove = useCallback((product: product) => {
+		setCartItems((cartItems) => {
+			let cartItemsClone = { ...cartItems };
+			delete cartItemsClone[product.title];
+			return cartItemsClone;
 		});
 	}, []);
 
@@ -48,7 +57,12 @@ function App() {
 					/>
 					<Route
 						path="/checkout"
-						element={<Checkout cartItems={cartItems} />}
+						element={
+							<Checkout
+								cartItems={cartItems}
+								onRemove={onRemove}
+							/>
+						}
 					/>
 				</Routes>
 			</div>
