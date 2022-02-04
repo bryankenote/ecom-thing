@@ -21,7 +21,6 @@ function App() {
 
 	const onAdd = useCallback((product: product, quantity: number) => {
 		setCartItems((cartItems) => {
-			console.log(JSON.stringify(cartItems));
 			let cartItem = cartItems[product.title];
 			let newQuantity;
 			if (cartItem) {
