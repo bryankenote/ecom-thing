@@ -12,5 +12,7 @@
 	"checkout": "Checkout",
 	"shoppingCart": "Shopping Cart",
 	"quantity": "Quantity",
-	"catalog": "Catalog"
+	"catalog": "Catalog",
+	"deleteItem": "Delete Item",
+	"removeFromCart": "Remove From Cart"
 }

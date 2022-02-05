@@ -35,6 +35,14 @@ function App() {
 		});
 	}, []);
 
+	const onRemove = useCallback((product: product) => {
+		setCartItems((cartItems) => {
+			let cartItemsClone = { ...cartItems };
+			delete cartItemsClone[product.title];
+			return cartItemsClone;
+		});
+	}, []);
+
 	return (
 		<LocalizationContext.Provider value={localStrings}>
 			<div className="App">
@@ -48,7 +56,12 @@ function App() {
 					/>
 					<Route
 						path="/checkout"
-						element={<Checkout cartItems={cartItems} />}
+						element={
+							<Checkout
+								cartItems={cartItems}
+								onRemove={onRemove}
+							/>
+						}
 					/>
 				</Routes>
 			</div>
