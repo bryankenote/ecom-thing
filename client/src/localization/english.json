@@ -13,5 +13,6 @@
 	"shoppingCart": "Shopping Cart",
 	"quantity": "Quantity",
 	"catalog": "Catalog",
-	"deleteItem": "Delete Item"
+	"deleteItem": "Delete Item",
+	"removeFromCart": "Remove From Cart"
 }

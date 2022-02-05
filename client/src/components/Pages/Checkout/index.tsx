@@ -29,7 +29,7 @@ function Checkout({ cartItems, onRemove }: ICheckout) {
 								className={style.removeFromCart}
 								onClick={() => onRemove(value.product)}
 							>
-								{strings.deleteItem}
+								{strings.removeFromCart}
 							</button>
 						</div>
 					</div>
