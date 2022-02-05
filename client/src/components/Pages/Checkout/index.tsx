@@ -12,10 +12,6 @@ interface ICheckout {
 function Checkout({ cartItems, onRemove }: ICheckout) {
 	const strings = useContext(LocalizationContext);
 
-	const removeFromCart = (productItem: product) => {
-		onRemove(productItem);
-	};
-
 	return (
 		<div>
 			<h1 className={style.shoppingCart}>{strings.shoppingCart}</h1>
@@ -31,7 +27,7 @@ function Checkout({ cartItems, onRemove }: ICheckout) {
 						<div>
 							<button
 								className={style.deleteButton}
-								onClick={() => removeFromCart(value.product)}
+								onClick={() => onRemove(value.product)}
 							>
 								{strings.deleteItem}
 							</button>
