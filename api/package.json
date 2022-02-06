@@ -10,6 +10,7 @@
 		"start": "node --es-module-specifier-resolution=node dist/index.js",
 		"dev": "tsc-watch --project . --outDir ./dist --onSuccess \"nodemon\"",
 		"docker:run": "(docker-compose down; docker-compose build; docker-compose up)",
+		"docker:run:windows": "(docker compose down; docker compose build; docker compose up)",
 		"docker:image": "docker build -t node-api:v1 .",
 		"docker:network": "docker network create node-api-network"
 	},

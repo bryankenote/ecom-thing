@@ -1,6 +1,7 @@
 import express from 'express';
 import initDB from './services/db';
 import numbersRouter from './routes/numbers';
+import productsRouter from './routes/products';
 
 initDB();
 
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/numbers', numbersRouter);
+app.use('/products', productsRouter);
 
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);

@@ -6,4 +6,11 @@ export default {
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )  ENGINE=INNODB;
 `,
+	products: `
+	CREATE TABLE IF NOT EXISTS products (
+	  id INT AUTO_INCREMENT PRIMARY KEY,
+	  number INT NOT NULL,
+	  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	)  ENGINE=INNODB;
+`,
 };
