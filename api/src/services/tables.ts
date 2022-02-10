@@ -14,8 +14,6 @@ export default {
 	  description VARCHAR(255),
 	  category VARCHAR(255),
 	  image VARCHAR(255),
-	  rate DECIMAL(65, 1),
-	  count INT(255),
 	  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 	)  ENGINE=INNODB;
 `,
