@@ -5,6 +5,7 @@ import {
 	fetchProduct,
 	fetchProducts,
 	insertProduct,
+	insertProducts,
 } from '../services/products';
 
 const router = express.Router();
@@ -32,6 +33,16 @@ router.post('/', async (req, res, next) => {
 	try {
 		const { title, description, price, category, image } = req.body;
 		res.json(await insertProduct(title, description, price, category, image));
+	} catch (err) {
+		console.log(req.url, err);
+		next(err);
+	}
+});
+
+router.post('/', async (req, res, next) => {
+	try {
+		const { title, description, price, category, image } = req.body;
+		res.json(await insertProducts(title, description, price, category, image));
 	} catch (err) {
 		console.log(req.url, err);
 		next(err);

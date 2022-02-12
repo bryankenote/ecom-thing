@@ -21,8 +21,7 @@ export const insertProduct = (
 	);
 };
 
-export const updateProduct = (
-	id: string,
+export const insertProducts = (
 	title: string,
 	description: string,
 	price: number,
@@ -30,8 +29,23 @@ export const updateProduct = (
 	image: string,
 ) => {
 	return query(
-		`UPDATE products SET title=(?), description=(?), price=(?), category=(?), image=(?) WHERE id=(?)`,
-		[title, description, price, category, image, id],
+		`INSERT INTO products (title, description, price, category, image) VALUES(?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE
+		title=?, description=?, price=?, category=?, image=?`,
+		[title, description, price, category, image],
+	);
+};
+
+export const updateProduct = (
+	id: string,
+	title?: string,
+	description?: string,
+	price?: number,
+	category?: string,
+	image?: string,
+) => {
+	return query(
+		`UPDATE products p SET title=COALESCE(?, p.title), description=COALESCE(?, p.description), price=COALESCE(?, p.price), category=COALESCE(?, p.category), image=COALESCE(?, p.image) WHERE id=(?)`,
+		[title ?? null, description ?? null, price ?? null, category ?? null, image ?? null, id],
 	);
 };
 
