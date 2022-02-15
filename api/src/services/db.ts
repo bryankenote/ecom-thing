@@ -9,7 +9,7 @@ const init = async () => {
 
 export async function query(sql: string, params?: { [param: string]: any }) {
 	const connection = await mysql.createConnection(config.db);
-	const [results] = await connection.execute(sql, params);
+	const [results] = await connection.query(sql, params);
 
 	return results;
 }

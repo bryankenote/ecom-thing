@@ -21,19 +21,16 @@ export const insertProduct = (
 	);
 };
 
-export const insertProducts = (
-	title: string,
-	description: string,
-	price: number,
-	category: string,
-	image: string,
-) => {
+export async function importProduct(productArray: Array<any>) {
+	const importProducts = productArray.map((product) => {
+		return Object.values(product);
+	});
+	await query(`TRUNCATE table products`);
 	return query(
-		`INSERT INTO products (title, description, price, category, image) VALUES(?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE
-		title=?, description=?, price=?, category=?, image=?`,
-		[title, description, price, category, image],
+		`INSERT INTO products (id, title, description, price, category, image) VALUES(?)`,
+		[importProducts],
 	);
-};
+}
 
 export const updateProduct = (
 	id: string,
