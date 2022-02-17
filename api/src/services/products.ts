@@ -25,11 +25,10 @@ export async function importProduct(productArray: Array<any>) {
 	const importProducts = productArray.map((product) => {
 		return Object.values(product);
 	});
-	await query(`TRUNCATE table products`);
-	return query(
-		`INSERT INTO products (id, title, description, price, category, image) VALUES(?)`,
-		[importProducts],
-	);
+	await query(`TRUNCATE TABLE products`);
+	return query(`INSERT INTO products (id, title, price, description, category, image) VALUES ?`, [
+		importProducts,
+	]);
 }
 
 export const updateProduct = (
