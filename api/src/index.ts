@@ -1,6 +1,5 @@
 import express from 'express';
 import initDB from './services/db';
-import numbersRouter from './routes/numbers';
 import productsRouter from './routes/products';
 
 initDB();
@@ -15,7 +14,6 @@ app.get('/', (req, res) => {
 	res.send('Hello World!');
 });
 
-app.use('/numbers', numbersRouter);
 app.use('/products', productsRouter);
 
 app.listen(port, () => {
