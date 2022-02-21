@@ -2,9 +2,12 @@ import React, { useContext } from 'react';
 import { LocalizationContext } from '../../../localization';
 
 export type product = {
+	id: number;
 	title: string;
-	img: string;
+	description: string;
 	price: number;
+	category: string;
+	img: string;
 };
 interface IProduct {
 	item: product;
