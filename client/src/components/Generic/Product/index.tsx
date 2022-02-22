@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
 import { LocalizationContext } from '../../../localization';
+import style from './style.module.css';
 
 export type product = {
+	id: number;
 	title: string;
-	img: string;
+	description: string;
 	price: number;
+	category: string;
+	image: string;
 };
 interface IProduct {
 	item: product;
@@ -15,7 +19,11 @@ function Product(props: IProduct) {
 	return (
 		<div>
 			<h2>{props.item.title}</h2>
-			<img src={props.item.img} alt={props.item.title} />
+			<img
+				className={style.image}
+				src={props.item.image}
+				alt={props.item.title}
+			/>
 			<h3>
 				{strings.price}: {props.item.price}
 			</h3>

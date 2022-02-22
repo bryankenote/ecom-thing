@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import movies from '../../../api/dummyData/movies.json';
 import { LocalizationContext } from '../../../localization';
 import Product from '../../Generic/Product';
+import { fetchProducts } from '../../../api/Fetch Products';
 
 function Catalog() {
 	const strings = useContext(LocalizationContext);
@@ -15,16 +15,21 @@ function Catalog() {
 		setText(event.target.value);
 	};
 
-	const [filteredMovies, setFilteredMovies] = useState<
-		{ img: string; title: string; price: number }[]
+	const [product, setProducts] = useState<
+		{
+			id: number;
+			title: string;
+			price: number;
+			description: string;
+			category: string;
+			image: string;
+		}[]
 	>([]);
 
-	const handleClick = () => {
-		setFilteredMovies(
-			movies.filter((movie) =>
-				movie.title.toLowerCase().includes(text.toLowerCase()),
-			),
-		);
+	const handleClick = async () => {
+		let productJson = await fetchProducts();
+		setProducts(productJson);
+		console.log(productJson);
 	};
 
 	return (
@@ -35,7 +40,7 @@ function Catalog() {
 			<input type="text" value={text} onChange={handleChange} />
 			<button onClick={handleClick}>{strings.search}</button>
 			<div>
-				{filteredMovies.map((item, index) => (
+				{product.map((item, index) => (
 					<div key={index}>
 						<Product item={item} />
 						<Link to="/product" state={{ item }}>
