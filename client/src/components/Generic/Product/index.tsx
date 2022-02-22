@@ -7,7 +7,7 @@ export type product = {
 	description: string;
 	price: number;
 	category: string;
-	img: string;
+	image: string;
 };
 interface IProduct {
 	item: product;
@@ -18,7 +18,7 @@ function Product(props: IProduct) {
 	return (
 		<div>
 			<h2>{props.item.title}</h2>
-			<img src={props.item.img} alt={props.item.title} />
+			<img src={props.item.image} alt={props.item.title} />
 			<h3>
 				{strings.price}: {props.item.price}
 			</h3>

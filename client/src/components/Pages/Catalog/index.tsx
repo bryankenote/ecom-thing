@@ -22,13 +22,14 @@ function Catalog() {
 			price: number;
 			description: string;
 			category: string;
-			img: string;
+			image: string;
 		}[]
 	>([]);
 
 	const handleClick = async () => {
 		let productJson = await fetchProducts();
 		setProducts(productJson);
+		console.log(productJson);
 	};
 
 	return (
