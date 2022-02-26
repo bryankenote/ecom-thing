@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { LocalizationContext } from '../../../localization';
 import { ICart } from '../../../App';
 import Product, { product } from '../../Generic/Product';
@@ -7,9 +7,10 @@ import style from './style.module.css';
 interface ICheckout {
 	cartItems: ICart;
 	onRemove: (product: product) => void;
+	onUpdateQuantity: (product: product, quantity: number) => void;
 }
 
-function Checkout({ cartItems, onRemove }: ICheckout) {
+function Checkout({ cartItems, onRemove, onUpdateQuantity }: ICheckout) {
 	const strings = useContext(LocalizationContext);
 
 	return (
@@ -20,9 +21,19 @@ function Checkout({ cartItems, onRemove }: ICheckout) {
 					<div className={style.checkoutItems} key={index}>
 						<div>
 							<Product item={value.product} />
-							<h3>
-								{strings.quantity}: {value.quantity}
-							</h3>
+							<label>
+								{strings.quantity}
+								<input
+									type="number"
+									value={value.quantity}
+									onChange={(event) =>
+										onUpdateQuantity(
+											value.product,
+											parseInt(event.target.value),
+										)
+									}
+								/>
+							</label>
 						</div>
 						<div>
 							<button

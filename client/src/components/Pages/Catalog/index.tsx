@@ -29,7 +29,6 @@ function Catalog() {
 	const handleClick = async () => {
 		let productJson = await fetchProducts();
 		setProducts(productJson);
-		console.log(productJson);
 	};
 
 	return (

@@ -35,7 +35,20 @@ function App() {
 		});
 	}, []);
 
-	const onRemove = useCallback((product: product) => {
+	const handleUpdateQuantity = useCallback(
+		(product: product, quantity: number) => {
+			setCartItems((cartItems) => {
+				let newQuantity = quantity;
+				return {
+					...cartItems,
+					[product.title]: { product, quantity: newQuantity },
+				};
+			});
+		},
+		[],
+	);
+
+	const handleRemove = useCallback((product: product) => {
 		setCartItems((cartItems) => {
 			let cartItemsClone = { ...cartItems };
 			delete cartItemsClone[product.title];
@@ -59,7 +72,8 @@ function App() {
 						element={
 							<Checkout
 								cartItems={cartItems}
-								onRemove={onRemove}
+								onRemove={handleRemove}
+								onUpdateQuantity={handleUpdateQuantity}
 							/>
 						}
 					/>
