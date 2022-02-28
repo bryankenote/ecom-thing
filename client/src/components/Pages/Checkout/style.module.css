@@ -24,3 +24,7 @@
 .shoppingCart {
 	border-bottom: black 3px solid;
 }
+
+.totalCost {
+	padding-left: 20px;
+}

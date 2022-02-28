@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { LocalizationContext } from '../../../localization';
 import { ICart } from '../../../App';
 import Product, { product } from '../../Generic/Product';
@@ -12,6 +12,11 @@ interface ICheckout {
 
 function Checkout({ cartItems, onRemove, onUpdateQuantity }: ICheckout) {
 	const strings = useContext(LocalizationContext);
+
+	const totalCost = (product: product, quantity: number) => {
+		const total = product.price * quantity;
+		return total;
+	};
 
 	return (
 		<div>
@@ -33,6 +38,10 @@ function Checkout({ cartItems, onRemove, onUpdateQuantity }: ICheckout) {
 										)
 									}
 								/>
+							</label>
+							<label className={style.totalCost}>
+								{strings.total}
+								{totalCost(value.product, value.quantity)}
 							</label>
 						</div>
 						<div>
