@@ -37,8 +37,11 @@ function App() {
 
 	const handleUpdateQuantity = useCallback(
 		(product: product, quantity: number) => {
+			let newQuantity = quantity;
+			if (newQuantity < 1) {
+				return;
+			}
 			setCartItems((cartItems) => {
-				let newQuantity = quantity;
 				return {
 					...cartItems,
 					[product.title]: { product, quantity: newQuantity },
