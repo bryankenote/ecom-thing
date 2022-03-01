@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { LocalizationContext } from '../../../localization';
-import Product from '../../Generic/Product';
+import Product, { product } from '../../Generic/Product';
 import { fetchProducts } from '../../../api/Fetch Products';
 
 function Catalog() {
@@ -15,20 +15,11 @@ function Catalog() {
 		setText(event.target.value);
 	};
 
-	const [product, setProducts] = useState<
-		{
-			id: number;
-			title: string;
-			price: number;
-			description: string;
-			category: string;
-			image: string;
-		}[]
-	>([]);
+	const [product, setProducts] = useState<product[]>([]);
 
 	const handleClick = async () => {
-		let productJson = await fetchProducts();
-		setProducts(productJson);
+		let products = await fetchProducts();
+		setProducts(products);
 	};
 
 	return (
