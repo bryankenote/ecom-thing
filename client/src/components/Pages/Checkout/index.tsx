@@ -20,7 +20,7 @@ function Checkout({ cartItems, onRemove, onUpdateQuantity }: ICheckout) {
 
 	const orderTotal = () => {
 		const newCartArray = Object.values(cartItems).map(
-			(value) => value.quantity,
+			(value) => value.quantity * value.product.price,
 		);
 		let initialOrderTotal = 0;
 		let orderTotalSum = newCartArray.reduce(
@@ -71,7 +71,7 @@ function Checkout({ cartItems, onRemove, onUpdateQuantity }: ICheckout) {
 				))}
 			</div>
 			<div>
-				<label>{() => orderTotal}</label>
+				<label>{orderTotal()}</label>
 			</div>
 		</div>
 	);
