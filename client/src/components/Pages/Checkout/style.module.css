@@ -28,3 +28,9 @@
 .totalCost {
 	padding-left: 20px;
 }
+
+.orderTotal {
+	display: flex;
+	font-size: 18px;
+	padding-top: 20px;
+}

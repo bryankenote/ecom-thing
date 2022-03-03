@@ -71,7 +71,10 @@ function Checkout({ cartItems, onRemove, onUpdateQuantity }: ICheckout) {
 				))}
 			</div>
 			<div>
-				<label>{orderTotal()}</label>
+				<label className={style.orderTotal}>
+					{strings.orderTotal}
+					{orderTotal()}
+				</label>
 			</div>
 		</div>
 	);

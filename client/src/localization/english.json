@@ -15,5 +15,6 @@
 	"catalog": "Catalog",
 	"deleteItem": "Delete Item",
 	"removeFromCart": "Remove From Cart",
-	"total": "Total: "
+	"total": "Total: $",
+	"orderTotal": "Order Total: $"
 }
