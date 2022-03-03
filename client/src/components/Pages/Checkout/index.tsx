@@ -13,9 +13,21 @@ interface ICheckout {
 function Checkout({ cartItems, onRemove, onUpdateQuantity }: ICheckout) {
 	const strings = useContext(LocalizationContext);
 
-	const totalCost = (product: product, quantity: number) => {
+	const totalCostPerItem = (product: product, quantity: number) => {
 		const total = product.price * quantity;
 		return total;
+	};
+
+	const orderTotal = () => {
+		const newCartArray = Object.values(cartItems).map(
+			(value) => value.quantity,
+		);
+		let initialOrderTotal = 0;
+		let orderTotalSum = newCartArray.reduce(
+			(prevVal, currVal) => prevVal + currVal,
+			initialOrderTotal,
+		);
+		return orderTotalSum;
 	};
 
 	return (
@@ -41,7 +53,10 @@ function Checkout({ cartItems, onRemove, onUpdateQuantity }: ICheckout) {
 							</label>
 							<label className={style.totalCost}>
 								{strings.total}
-								{totalCost(value.product, value.quantity)}
+								{totalCostPerItem(
+									value.product,
+									value.quantity,
+								)}
 							</label>
 						</div>
 						<div>
@@ -54,6 +69,9 @@ function Checkout({ cartItems, onRemove, onUpdateQuantity }: ICheckout) {
 						</div>
 					</div>
 				))}
+			</div>
+			<div>
+				<label>{() => orderTotal}</label>
 			</div>
 		</div>
 	);
