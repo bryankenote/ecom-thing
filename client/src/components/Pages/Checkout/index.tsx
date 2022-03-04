@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useCallback, useContext, useMemo } from 'react';
 import { LocalizationContext } from '../../../localization';
 import { ICart } from '../../../App';
 import Product, { product } from '../../Generic/Product';
@@ -13,10 +13,13 @@ interface ICheckout {
 function Checkout({ cartItems, onRemove, onUpdateQuantity }: ICheckout) {
 	const strings = useContext(LocalizationContext);
 
-	const totalCostPerItem = (product: product, quantity: number) => {
-		const total = product.price * quantity;
-		return total.toFixed(2);
-	};
+	const totalCostPerItem = useCallback(
+		(product: product, quantity: number) => {
+			const total = product.price * quantity;
+			return total.toFixed(2);
+		},
+		[],
+	);
 
 	const orderTotal = useMemo(() => {
 		const newCartArray = Object.values(cartItems).map(
