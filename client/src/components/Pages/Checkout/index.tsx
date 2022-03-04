@@ -15,7 +15,7 @@ function Checkout({ cartItems, onRemove, onUpdateQuantity }: ICheckout) {
 
 	const totalCostPerItem = (product: product, quantity: number) => {
 		const total = product.price * quantity;
-		return total;
+		return total.toFixed(2);
 	};
 
 	const orderTotal = useMemo(() => {
@@ -27,7 +27,7 @@ function Checkout({ cartItems, onRemove, onUpdateQuantity }: ICheckout) {
 			(prevVal, currVal) => prevVal + currVal,
 			initialOrderTotal,
 		);
-		return orderTotalSum;
+		return orderTotalSum.toFixed(2);
 	}, [cartItems]);
 
 	return (
