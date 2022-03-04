@@ -49,7 +49,7 @@ function Checkout({ cartItems, onRemove, onUpdateQuantity }: ICheckout) {
 									onChange={(event) =>
 										onUpdateQuantity(
 											value.product,
-											parseInt(event.target.value),
+											parseInt(event.target.value) || 0,
 										)
 									}
 								/>
