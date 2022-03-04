@@ -18,7 +18,7 @@ function Catalog() {
 	const [product, setProducts] = useState<product[]>([]);
 
 	const handleClick = async () => {
-		let products = await fetchProducts();
+		const products = await fetchProducts();
 		setProducts(products);
 	};
 

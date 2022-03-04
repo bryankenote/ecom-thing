@@ -21,7 +21,7 @@ function App() {
 
 	const onAdd = useCallback((product: product, quantity: number) => {
 		setCartItems((cartItems) => {
-			let cartItem = cartItems[product.title];
+			const cartItem = cartItems[product.title];
 			let newQuantity;
 			if (cartItem) {
 				newQuantity = quantity + cartItem.quantity;
@@ -37,7 +37,7 @@ function App() {
 
 	const handleUpdateQuantity = useCallback(
 		(product: product, quantity: number) => {
-			let newQuantity = quantity;
+			const newQuantity = quantity;
 			if (newQuantity < 1) {
 				return;
 			}
@@ -53,7 +53,7 @@ function App() {
 
 	const handleRemove = useCallback((product: product) => {
 		setCartItems((cartItems) => {
-			let cartItemsClone = { ...cartItems };
+			const cartItemsClone = { ...cartItems };
 			delete cartItemsClone[product.title];
 			return cartItemsClone;
 		});
