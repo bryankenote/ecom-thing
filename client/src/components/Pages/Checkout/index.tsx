@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { LocalizationContext } from '../../../localization';
 import { ICart } from '../../../App';
 import Product, { product } from '../../Generic/Product';
@@ -18,7 +18,7 @@ function Checkout({ cartItems, onRemove, onUpdateQuantity }: ICheckout) {
 		return total;
 	};
 
-	const orderTotal = () => {
+	const orderTotal = useMemo(() => {
 		const newCartArray = Object.values(cartItems).map(
 			(value) => value.quantity * value.product.price,
 		);
@@ -28,7 +28,7 @@ function Checkout({ cartItems, onRemove, onUpdateQuantity }: ICheckout) {
 			initialOrderTotal,
 		);
 		return orderTotalSum;
-	};
+	}, [cartItems]);
 
 	return (
 		<div>
@@ -73,7 +73,7 @@ function Checkout({ cartItems, onRemove, onUpdateQuantity }: ICheckout) {
 			<div>
 				<label className={style.orderTotal}>
 					{strings.orderTotal}
-					{orderTotal()}
+					{orderTotal}
 				</label>
 			</div>
 		</div>
