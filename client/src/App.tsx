@@ -21,7 +21,7 @@ function App() {
 
 	const onAdd = useCallback((product: product, quantity: number) => {
 		setCartItems((cartItems) => {
-			let cartItem = cartItems[product.title];
+			const cartItem = cartItems[product.title];
 			let newQuantity;
 			if (cartItem) {
 				newQuantity = quantity + cartItem.quantity;
@@ -35,9 +35,25 @@ function App() {
 		});
 	}, []);
 
-	const onRemove = useCallback((product: product) => {
+	const handleUpdateQuantity = useCallback(
+		(product: product, quantity: number) => {
+			const newQuantity = quantity;
+			if (newQuantity < 1) {
+				return;
+			}
+			setCartItems((cartItems) => {
+				return {
+					...cartItems,
+					[product.title]: { product, quantity: newQuantity },
+				};
+			});
+		},
+		[],
+	);
+
+	const handleRemove = useCallback((product: product) => {
 		setCartItems((cartItems) => {
-			let cartItemsClone = { ...cartItems };
+			const cartItemsClone = { ...cartItems };
 			delete cartItemsClone[product.title];
 			return cartItemsClone;
 		});
@@ -59,7 +75,8 @@ function App() {
 						element={
 							<Checkout
 								cartItems={cartItems}
-								onRemove={onRemove}
+								onRemove={handleRemove}
+								onUpdateQuantity={handleUpdateQuantity}
 							/>
 						}
 					/>

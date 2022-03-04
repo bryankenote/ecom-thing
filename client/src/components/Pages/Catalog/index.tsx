@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { LocalizationContext } from '../../../localization';
-import Product from '../../Generic/Product';
-import { fetchProducts } from '../../../api/Fetch Products';
+import Product, { product } from '../../Generic/Product';
+import { fetchProducts } from '../../../api/FetchProducts';
 
 function Catalog() {
 	const strings = useContext(LocalizationContext);
@@ -15,21 +15,11 @@ function Catalog() {
 		setText(event.target.value);
 	};
 
-	const [product, setProducts] = useState<
-		{
-			id: number;
-			title: string;
-			price: number;
-			description: string;
-			category: string;
-			image: string;
-		}[]
-	>([]);
+	const [product, setProducts] = useState<product[]>([]);
 
 	const handleClick = async () => {
-		let productJson = await fetchProducts();
-		setProducts(productJson);
-		console.log(productJson);
+		const products = await fetchProducts();
+		setProducts(products);
 	};
 
 	return (

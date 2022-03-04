@@ -21,8 +21,8 @@ function ProductDetail(props: IProductDetail) {
 	const handleItemQuantityChange: React.ChangeEventHandler<
 		HTMLInputElement
 	> = (event) => {
-		const quantity = parseInt(event.target.value);
-		if (quantity === 0) {
+		const quantity = parseInt(event.target.value) || 0;
+		if (quantity < 1) {
 			return;
 		} else {
 			setItemQuantity(quantity);
