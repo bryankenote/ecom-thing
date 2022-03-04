@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { LocalizationContext } from '../../../localization';
 import Product, { product } from '../../Generic/Product';
-import { fetchProducts } from '../../../api/Fetch Products';
+import { fetchProducts } from '../../../api/FetchProducts';
 
 function Catalog() {
 	const strings = useContext(LocalizationContext);
