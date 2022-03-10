@@ -1,7 +1,13 @@
 import { query } from './db';
 
-export const fetchProducts = () => {
-	return query(`SELECT * FROM products`);
+export const fetchProducts = ({
+	limit,
+	offset,
+}: {
+	limit?: number | null;
+	offset?: number | null;
+}) => {
+	return query(`SELECT * FROM products LIMIT ? OFFSET ?`, [limit ?? 10, offset ?? 0]);
 };
 
 export const fetchProduct = (id: string) => {
