@@ -1,6 +1,12 @@
 import { query } from './db';
 
-export const fetchProducts = ({ limit, offset }: { limit?: number; offset?: number }) => {
+export const fetchProducts = ({
+	limit,
+	offset,
+}: {
+	limit?: number | null;
+	offset?: number | null;
+}) => {
 	return query(`SELECT * FROM products LIMIT ? OFFSET ?`, [limit ?? 10, offset ?? 0]);
 };
 

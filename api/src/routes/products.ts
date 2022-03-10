@@ -12,8 +12,8 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
 	try {
-		const limit = req.query.limit ? Number(req.query.limit) : undefined;
-		const offset = req.query.offset ? Number(req.query.offset) : undefined;
+		const limit = req.query.limit ? Number(req.query.limit) : null;
+		const offset = req.query.offset ? Number(req.query.offset) : null;
 		res.json(await fetchProducts({ limit, offset }));
 	} catch (err) {
 		console.error(req.url, err);
