@@ -1,17 +1,24 @@
 import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import initDB from './services/db';
 import productsRouter from './routes/products';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 initDB();
 
 const app = express();
-const port = 8000;
+const port = process.env.PORT ?? 8000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, '..', 'client')));
+
 app.get('/', (req, res) => {
-	res.send('Hello World!');
+	res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
 });
 
 app.use('/products', productsRouter);
