@@ -24,7 +24,7 @@ jobs:
         run: yarn --cwd ./api build
 
       - name: Run api tests
-        run: yarn --cwd ./api jest --passWithNoTests
+        run: yarn --cwd ./api test
 
       - name: Install client packages
         run: yarn --cwd ./client --frozen-lockfile
