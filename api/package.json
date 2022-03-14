@@ -6,6 +6,7 @@
 	"license": "MIT",
 	"scripts": {
 		"lint": "eslint --ext .ts --ext .tsx .",
+		"test": "jest --passWithNoTests",
 		"build": "tsc  --project . --outDir ./dist",
 		"start": "node --es-module-specifier-resolution=node dist/index.js",
 		"dev": "tsc-watch --project . --outDir ./dist --onSuccess \"nodemon\"",
