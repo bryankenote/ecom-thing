@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
 });
 
-app.use('/products', productsRouter);
+app.use('/api/v1/products', productsRouter);
 
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
