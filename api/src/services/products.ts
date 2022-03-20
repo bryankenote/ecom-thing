@@ -1,13 +1,18 @@
 import { query } from './db';
 
-export const fetchProducts = ({
+export const fetchProducts = async ({
 	limit,
 	offset,
 }: {
 	limit?: number | null;
 	offset?: number | null;
 }) => {
-	return query(`SELECT * FROM products LIMIT ? OFFSET ?`, [limit ?? 10, offset ?? 0]);
+	const products = await query(`SELECT * FROM products LIMIT ? OFFSET ?`, [
+		limit ?? 10,
+		offset ?? 0,
+	]);
+	const { total } = ((await query(`SELECT COUNT(*) as total FROM products`)) as any[])[0];
+	return { products, total };
 };
 
 export const fetchProduct = (id: string) => {
