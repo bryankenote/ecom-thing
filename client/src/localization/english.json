@@ -16,5 +16,8 @@
 	"deleteItem": "Delete Item",
 	"removeFromCart": "Remove From Cart",
 	"total": "Total: $",
-	"orderTotal": "Order Total: $"
+	"orderTotal": "Order Total: $",
+	"previous": "Previous",
+	"next": "Next",
+	"productsPerPage": "Products Per Page"
 }
