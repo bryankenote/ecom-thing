@@ -1,0 +1,8 @@
+.inputContainer {
+	display: flex;
+	justify-content: space-between;
+}
+
+.productNumberInput {
+	width: 30px;
+}
